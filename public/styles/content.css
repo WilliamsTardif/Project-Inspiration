@@ -1,0 +1,9 @@
+body {
+    background-image: url("../images/quotesBackground.png");
+}
+
+.quoteContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
