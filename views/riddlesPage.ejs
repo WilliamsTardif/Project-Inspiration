@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="container quoteContent">
+    <div class="content">
+        <h2>Riddles</h2>
+        <h2>Riddles</h2>
+      </div>
+    <div class="quoteBox">
+        <div class="card">
+            <form action="/answer" method="POST">
+                <p class="quoteText">
+                    <%= riddle %>
+                </p>
+                <input type="text" class="riddleAnswer" placeholder="Answer" name="userAnswer" />
+                <% if (locals.message) { %>
+                <h3><%= message %></h3>
+                <% } %>
+                <div class="container quoteButton">
+                    <button class="button btn btn-primary" type="submit">
+                        Validate
+                    </button>
+                </div>
+            </form>
+            <form action="/riddles" method="GET">
+                <div class="container quoteButton">
+                    <button class="button btn btn-primary" type="submit">
+                        New Riddles
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer.ejs") %>

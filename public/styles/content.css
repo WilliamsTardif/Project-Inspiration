@@ -1,9 +1,243 @@
 body {
-    background-image: url("../images/quotesBackground.png");
+  margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+	--sz: 5px; /*** size ***/
+	--sp: 10s; /*** speed ***/
+	--b1: #3c3532;
+	--b2: #1c1b18;
+	--b3: #0c0b0a;
+	--b4: #0c0b0ae0;
+	--c1: rgb(227, 153, 255);
+	--ts: 50%/calc(var(--sz) * 17.5) calc(var(--sz) * 29.5);
+}
+
+.back {
+    height: 100vh;
+	background:
+		/* black shadows */
+		radial-gradient(circle at 50% 50%, var(--b4) calc(var(--sz) * 1), #fff0 calc(var(--sz) * 8)) var(--ts),
+		radial-gradient(circle at 0% 0%, var(--b4) calc(var(--sz) * 1), #fff0 calc(var(--sz) * 8)) var(--ts),
+		radial-gradient(circle at 0% 100%, var(--b4) calc(var(--sz) * 1), #fff0 calc(var(--sz) * 8)) var(--ts),
+		radial-gradient(circle at 100% 0%, var(--b4) calc(var(--sz) * 1), #fff0 calc(var(--sz) * 8)) var(--ts),
+		radial-gradient(circle at 100% 100%, var(--b4) calc(var(--sz) * 1), #fff0 calc(var(--sz) * 8)) var(--ts),
+		/* border bottom */
+		conic-gradient(from 90deg at 97.5% 67%, var(--c1) 0 87.5deg, #fff0 88deg 100%) var(--ts), /*repeated*/
+		conic-gradient(from 90deg at 97.5% 67%, var(--c1) 0 87.5deg, #fff0 88deg 100%) var(--ts),
+		conic-gradient(from 182.5deg at 2.5% 67%, #fff0 0 0deg, var(--c1) 0.5deg 90deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from 182.5deg at 2.5% 67%, #fff0 0 0deg, var(--c1) 0.5deg 90deg, #fff0 0 100%) var(--ts), 
+		/* border top */
+		conic-gradient(from 270deg at 2.5% 33%, var(--c1) 0 87.5deg, #fff0 88deg 100%) var(--ts), /*repeated*/
+		conic-gradient(from 270deg at 2.5% 33%, var(--c1) 0 87.5deg, #fff0 88deg 100%) var(--ts),
+		conic-gradient(from 2.5deg at 97.5% 33%, #fff0 0 0deg, var(--c1) 0.5deg 90deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from 2.5deg at 97.5% 33%, #fff0 0 0deg, var(--c1) 0.5deg 90deg, #fff0 0 100%) var(--ts),
+		/* bottom */
+		conic-gradient(from 116.5deg at 50% 85.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from 116.5deg at 50% 85.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from 116.5deg at 50% 85.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from 120deg at 50% 83%, var(--c1) 0 120deg, #fff0 0 100%) var(--ts),
+		/* top */
+		conic-gradient(from -63.5deg at 50% 14.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from -63.5deg at 50% 14.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts), /*repeated*/
+		conic-gradient(from -63.5deg at 50% 14.5%, var(--b1) 0 127deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from -60deg at 50% 17%, var(--c1) 0 120deg, #fff0 0 100%) var(--ts),
+		/* central gradient */
+		conic-gradient(
+			from 0deg at 50% 50%, #fff0 0 2deg, 
+			var(--b2) 2.5deg 57.5deg, 
+			#fff0 58deg 62.5deg, 
+			var(--b1) 63deg 117.5deg, 
+			#fff0 118deg 122.5deg, 
+			var(--b3) 123deg 177.5deg, 
+			#fff0 178deg 182deg, 
+			var(--b2) 182.5deg 237.5deg, 
+			#fff0 0 242.5deg, 
+			var(--b1) 243deg 297.5deg, 
+			#fff0 298deg 302.5deg, 
+			var(--b3) 303deg 357.5deg,
+			#fff0 358deg 360deg
+		) var(--ts),
+		/* bg */
+		var(--c1);
+	animation: colors var(--sp) linear 0s infinite;
+}
+
+img {
+  filter: grayscale();
+  margin: 1rem;
+  max-height: 45vh;
+  max-width: 60vw;
+}
+
+.riddleAnswer {
+  margin: 1rem;
+  border: outset;
+  border-radius: 10%;
+}
+
+h3 {
+  margin: 1rem;
+  text-align: center;
+}
+
+@keyframes colors {
+	100% { filter: hue-rotate(360deg); }
+}
+
+.switchQuoteTopic {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
 }
 
 .quoteContent {
+    overflow: visible;
     display: flex;
+    flex-direction: column;
+    height: 70vh;
     justify-content: center;
     align-items: center;
+}
+
+.card {
+  box-shadow: rgba(227, 153, 255, 0.4) -5px 5px, rgba(227, 153, 255, 0.3) -10px 10px, rgba(227, 153, 255, 0.2) -15px 15px, rgba(227, 153, 255, 0.1) -20px 20px, rgba(227, 153, 255, 0.05) -25px 25px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.quoteText {
+    margin: 1rem;
+    color: #4c4a37; 
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 18px; 
+    line-height: 32px;
+    text-align: center;
+}
+
+.switchText {
+    color: white;
+    margin-top: 5px;
+    margin-right: 1rem;
+}
+
+.quoteBox {
+    display: flex;
+}
+
+.quoteButton {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.content {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.content h2 {
+  color: #fff;
+  font-size: 8em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(227, 153, 255);
+}
+
+.content h2:nth-child(2) {
+  color: rgb(227, 153, 255);
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
 }
