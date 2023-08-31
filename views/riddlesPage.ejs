@@ -12,13 +12,16 @@
                 <p class="quoteText">
                     <%= riddle %>
                 </p>
-                <input type="text" class="riddleAnswer" placeholder="Answer" name="userAnswer" />
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Answer" name="userAnswer">
+                    <label for="floatingInput">Answer</label>
+                </div>
                 <% if (locals.message) { %>
                 <h3><%= message %></h3>
                 <% } %>
                 <div class="container quoteButton">
                     <button class="button btn btn-primary" type="submit">
-                        Validate
+                        Validate Answer
                     </button>
                 </div>
             </form>

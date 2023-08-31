@@ -63,17 +63,16 @@ body {
 	animation: colors var(--sp) linear 0s infinite;
 }
 
+.form-floating {
+  width: 70%;
+  margin: 0 auto 1rem;
+}
+
 img {
   filter: grayscale();
   margin: 1rem;
   max-height: 45vh;
   max-width: 60vw;
-}
-
-.riddleAnswer {
-  margin: 1rem;
-  border: outset;
-  border-radius: 10%;
 }
 
 h3 {
